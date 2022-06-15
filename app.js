@@ -28,6 +28,4 @@ sequelize.sync({})
   .then(() => {
     app.listen(port)
     console.log(`Finance Records and planner running at http://localhost:${port}`)
-  })
-
-// app.listen(port, () => console.log(`Finance Records and planner running at http://localhost:${port}`))
+  });
