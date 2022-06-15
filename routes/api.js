@@ -40,10 +40,4 @@ router.put("/spendings/lents/edit/:id", authJwt.verifyToken , SpendingsActionsCo
 
 router.delete("/spendings/delete/:type/:id", authJwt.verifyToken , SpendingsActionsController.delete);
 
-
-
-
-
-
-
 module.exports = router
