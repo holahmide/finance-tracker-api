@@ -1,4 +1,4 @@
-const path = require('path')
+require('dotenv').config();
 
 module.exports = {
     port: process.env.PORT || 5000,
@@ -7,7 +7,7 @@ module.exports = {
         user: process.env.DB_USER || 'root',
         password: process.env.DB_PASS || '',
         options: {
-            dialect : process.env.DIALECT || 'mysql',
+            dialect : 'mysql',
             host : process.env.HOST || 'localhost',
             define: {
               timestamps: true,
@@ -24,6 +24,6 @@ module.exports = {
         }
     },
     authentication : {
-        jwtSecret : process.env.JWT_SECRET || 'AAAAB3NzaC1yc2EAAAADAQABAAABAQDYuuD09CbQ+LrqxVp8M62cnfE5gogIO/MomlQu8PIK6RL0BG3dsUSSgcEXJKmOvMHwWEUv3FTIr+5pMIX+E5wNIAnVfNeMl6FdPA3l6eH9M/AA3Oy2hO+iXzd03vQ/lmQmxHCFYiw6QqGZBA8Qw7lOHNC1pnj4FwnqUER7AVK5XE1qd8Lo9gYFuO6H+sOk6762DfmakkFx3OztuN6zlbjiOkyJw48vIC3mAp'
+        jwtSecret : process.env.JWT_SECRET || 'AAAAB3NzaC1yc2EAAAADAQABAAABAQDYuuD09CbQ+LrqxVp8M62cnfE5gogIO'
     }
 }

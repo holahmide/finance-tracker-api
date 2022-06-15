@@ -1,9 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
     const Breakdown =  sequelize.define('Breakdown', {
-        // spendings_id: {
-        //   type: DataTypes.INTEGER.UNSIGNED,
-        //   allowNull: false,
-        // },
         price: {
           type: DataTypes.BIGINT(12),
           allowNull: false,

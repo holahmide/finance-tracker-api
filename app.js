@@ -2,6 +2,8 @@ const express = require('express');
 const cors = require('cors')
 const bodyParser = require('body-parser');
 
+require('dotenv').config();
+
 const { sequelize } = require('./models')
 const cookieParser = require("cookie-parser");
 
@@ -11,7 +13,7 @@ const port = process.env.PORT || 4000
 const app = express()
 
 var corsOptions = {
-  origin: ["http://127.0.0.1:3000", "http://localhost:3000", "http://127.0.0.1:8080", "http://localhost:8080"],
+  origin: process.env.CORS_ORIGINS?.split(',') || ["http://127.0.0.1:8080"],
   credentials: true,
   // allowedHeaders: ['Content-Type', 'Authorization'],
 

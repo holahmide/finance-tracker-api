@@ -13,7 +13,6 @@ class UserController {
         }
         //if validation passes
         // Hash incoming password
-        // const hashPassword = await bcrypt.hash(req.body.password, 10);
         const hashPassword = bcrypt.hashSync(req.body.password, 10);
         req.body.password = hashPassword
 
@@ -70,10 +69,6 @@ class UserController {
 
             if (match) {
                 const userJson = findUser.toJSON()
-                // console.log(config.authentication)
-                // const token = jwt.sign(userJson, config.authentication.jwtSecret, {
-                //     expiresIn: "7h"
-                // });
                 const token = jwt.sign({ id: userJson.id }, config.authentication.jwtSecret, {
                     expiresIn: "7h"
                 });

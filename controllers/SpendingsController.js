@@ -14,7 +14,6 @@ class SpendingsController {
             return res.status(400).send({status: 'failed', message : 'Validation error'})
         }
 
-        // req.body.user_id = req.user.id
         try {
             // create spendings instance
             let spendings = {
