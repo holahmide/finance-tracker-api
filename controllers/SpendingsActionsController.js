@@ -163,18 +163,17 @@ class SpendingsActionsController {
         let id = req.params.id
         if (!id && !req.params.type) {
             res.status(400).send({
-                message: 'ID not received (Borrowed)'
+                message: 'ID not received!'
             })
         }
 
         try {
             let deleteRecord = null
             if (req.params.type == 'lent') {
-                deleteRecord = Borrowed.destroy(id)
+                deleteRecord = await Lent.destroy({ where: { id } })
             }
-
-            if (req.params.type == 'borrowed') {
-                deleteRecord = Borrowed.destroy(id)
+            else if (req.params.type == 'borrowed') {
+                deleteRecord = await Borrowed.destroy({ where: { id } })
             }
 
             res.status(200).send({
@@ -182,6 +181,7 @@ class SpendingsActionsController {
                 data: deleteRecord
             })
         } catch (error) {
+            console.log(error)
             return res.status(400).send({
                 status: 'failed',
                 message: error || 'Server Error, please try again!',

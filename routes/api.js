@@ -18,16 +18,6 @@ router.put("/auth/edit/:id", authJwt.verifyToken, UserController.edit);
 router.get("/auth/logout", authJwt.verifyToken, UserController.logout);
 router.post("/auth/change_password", authJwt.verifyToken, UserController.changePassword);
 
-//Spendings
-router.post("/spendings/create",authJwt.verifyToken , SpendingsController.create);
-router.get("/spendings/all",authJwt.verifyToken , SpendingsActionsController.index);
-router.put("/spendings/edit/:id", authJwt.verifyToken , SpendingsController.edit);
-router.get("/limits/overshoots", authJwt.verifyToken , LimitController.index);
-router.post("/limits/create", authJwt.verifyToken , LimitController.create);
-router.put("/limits/edit/:id", authJwt.verifyToken , LimitController.edit);
-router.get("/spendings/chart", authJwt.verifyToken , SpendingsActionsController.chartData);
-router.post("/spendings/delete/:id", authJwt.verifyToken , SpendingsController.delete);
-
 //Borroweds
 router.post("/spendings/borroweds/create", authJwt.verifyToken , SpendingsActionsController.createBorrowed);
 router.get("/spendings/borroweds/all",authJwt.verifyToken , SpendingsActionsController.fetchBorroweds);
@@ -39,5 +29,15 @@ router.get("/spendings/lents/all",authJwt.verifyToken , SpendingsActionsControll
 router.put("/spendings/lents/edit/:id", authJwt.verifyToken , SpendingsActionsController.editLent);
 
 router.delete("/spendings/delete/:type/:id", authJwt.verifyToken , SpendingsActionsController.delete);
+
+//Spendings
+router.post("/spendings/create",authJwt.verifyToken , SpendingsController.create);
+router.get("/spendings/all",authJwt.verifyToken , SpendingsActionsController.index);
+router.put("/spendings/edit/:id", authJwt.verifyToken , SpendingsController.edit);
+router.get("/limits/overshoots", authJwt.verifyToken , LimitController.index);
+router.post("/limits/create", authJwt.verifyToken , LimitController.create);
+router.put("/limits/edit/:id", authJwt.verifyToken , LimitController.edit);
+router.get("/spendings/chart", authJwt.verifyToken , SpendingsActionsController.chartData);
+router.post("/spendings/delete/:id", authJwt.verifyToken , SpendingsController.delete);
 
 module.exports = router

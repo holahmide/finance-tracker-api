@@ -3,7 +3,7 @@ require('dotenv').config();
 module.exports = {
     port: process.env.PORT || 5000,
     db : {
-        database: process.env.DB_NAME || 'planner',
+        database: process.env.DB_NAME,
         user: process.env.DB_USER || 'root',
         password: process.env.DB_PASS || '',
         options: {
